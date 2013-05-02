@@ -1,0 +1,125 @@
+<<<<<<< HEAD
+//#warningOverlay
+  .warningBox This was built in 24 hours for TC Disrupt. Everything should work, but the clustering algo for the magnifying glass may be off. <a href='/onboard' class='signupLink'>Sign up</a>, and please email any bugs to founders@plaid.io.
+=======
+#warningOverlay
+  .warningBox(ng-show='!demo') This project was built in 24 hours for TC Disrupt. Everything should work, but the clustering algo for the magnifying glass may be off. Email any suggestions or bugs to founders@plaid.io.
+  .warningBox(ng-show='demo') This was built in 24 hours for TC Disrupt. Everything should work, but the clustering algo for the magnifying glass may be off. <a ng-href='/onboard' class='signupLink'>Sign up</a>, and please email any bugs to founders@plaid.io.
+
+>>>>>>> a5f2db093d8535b60c7f03cd02f50b8561525fd1
+.overlay
+#firstPlayHolder
+  img.firstLoadPlay(src='images/firstPlayEmpty.svg', alt='images/firstPlayEmpty.png')
+
+div(ng-repeat="marker in myMarkers", ui-map-marker="myMarkers[$index]",ui-event="{'map-click': 'openMarkerInfo(marker)'}")
+#map_canvas.map(ui-map="myMap", ui-event="", ui-options="mapOptions")
+
+.magnify
+  .magLabel {{currentCity}}
+  .outerMag
+    .innerMag
+      #magMap(style='width:300px;height:300px;',ui-map='mapTwo', ui-event='', ui-options='mapOptionsTwo');
+
+.dateHolder
+  img.homeLogo(src='images/ramblerLogo.svg', alt='images/ramblerLogo.png')
+  #date Rambler
+
+//#lineChart
+
+.sliderHolder
+  .sliderHolderHolder
+    #playButton.sliderControl.play
+    #slider
+    #allButton.sliderControl All
+
+.statsPanel
+  #counters
+    #seeMore.dontShow
+    #days.counter
+      .label Days
+      .flipper.hundreds
+        .line
+        .number
+      .flipper.tens
+        .line
+        .number
+      .flipper.ones
+        .line
+        .number  
+    #places.counter
+      .label Total Places
+      .flipper.hundreds
+        .line
+        .number
+      .flipper.tens
+        .line
+        .number
+      .flipper.ones
+        .line
+        .number
+    #cities.counter
+      .label Cities Visited
+      .flipper.hundreds
+        .line
+        .number
+      .flipper.tens
+        .line
+        .number
+      .flipper.ones
+        .line
+        .number
+    #food.counter
+      .label Restaurants
+      .flipper.hundreds
+        .line
+        .number
+      .flipper.tens
+        .line
+        .number  
+      .flipper.ones
+        .line
+        .number  
+    #bars.counter
+      .label Bars
+      .flipper.hundreds
+        .line
+        .number
+      .flipper.tens
+        .line
+        .number
+      .flipper.ones
+        .line
+        .number  
+    #seeMore.spinIn
+
+    .detailPane
+      .descriptionText In the past 
+        span.totalDays.statNumbers {{stats.days}}
+        span  days, you've made 
+        span.totalTransactions.statNumbers {{stats.transactions | number}}
+        span  transactions, and spent a total of  
+        span.totalSpending.statNumbers ${{stats.spend | number:0}}
+        span .  
+      #cityDetails.details
+        #cities.label Top Cities
+        span(ng-repeat='city in stats.highScores.cities')
+          #cities.list {{$index+1}}. {{city[0]}} ({{city[1]}})
+      #foodDetails.details
+        #food.label Top Eats
+        span(ng-repeat='food in stats.highScores.food')
+          #food.list {{$index+1}}. {{food[0]}} ({{food[1]}})
+      #barsDetails.details
+        #bars.label Top Bars
+        span(ng-repeat='bar in stats.highScores.bars')
+          #bars.list {{$index+1}}. {{bar[0]}} ({{bar[1]}})
+
+
+div.popupStyle(id='ibox')
+  h1.popup.ibox-name 
+  p.popup.ibox-line1 
+  p.popup.ibox-line2 
+
+
+
+
+

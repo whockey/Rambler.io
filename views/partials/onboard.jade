@@ -1,0 +1,29 @@
+
+#onboardBackground
+  #ramblerLogo
+    img.logo(src='images/ramblerLogo.svg', alt='images/ramblerLogo.png')
+      
+  #onboardHolder
+    h1.onboarding Welcome to Rambler!
+    p Check out a <a href='/main/demo'>demo</a>.
+    //p.onboardMessage.onboardSuccess We're not quite ready for prime time yet. Drop your email and we'll let you know when it's ready!!
+    form(ng-submit='onboard()')
+      #email.inputHolder
+        input.inputBox(ng-model='user.email', type='text', placeholder='Email Address')
+      #username.inputHolder
+        input.inputBox(ng-model='user.amex_username', type='text', placeholder='AMEX Username')
+        img.question(src='images/questionMark.svg', alt='images/questionMark.png')
+        .infoBox
+          .infoPointer
+          .infoText Rambler uses <a href='http://plaid.io'>Plaid </a> to connect with your card issuer. Linking your credentials allows you to visualize the transactions you made over the past few years.  
+      #password.inputHolder
+        input.inputBox(ng-model='user.amex_password', type='password', placeholder='AMEX Password')
+      .miniNote More cards coming soon
+      #button.inputHolder
+        input.inputButton(type='submit', value='RAMBLE ON')
+    
+    p.onboardMessage(ng-show='message') {{message}}
+
+  #plaidHolder
+    .builtBy Lovingly built in NYC by <a href='http://plaid.io'>Plaid</plaid>.
+    //img.plaidLogo(src='https://www.plaid.io/images/plaidLogoWhite.svg', alt='https://www.plaid.io/images/plaidLogoWhite.png')
